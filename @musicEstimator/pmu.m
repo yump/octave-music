@@ -24,10 +24,10 @@ function [result] = pmu(music, propvec)
 		end
 
 	else
-		error("pmu: bad propvec size\n");
+		error('pmu: bad propvec size\n');
 	end
 
 	result = 1 ./ abs(result_inv);
 
 
-endfunction
+end

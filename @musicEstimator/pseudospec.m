@@ -6,4 +6,4 @@ function [result] = pseudospec (music, azi, elev, ares, eres)
 	[aa,ee] = meshgrid(a,e);
 	result = incident(music,aa,ee);
 
-endfunction
+end

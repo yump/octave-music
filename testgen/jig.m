@@ -1,5 +1,3 @@
-#!/usr/bin/octave
-
 % Matrix of antenna positions for a 3x3 planar array in X-Z, 10 cm separation
 
 % wave vectors, 2450 MHz.
@@ -41,7 +39,7 @@ spectrum = abs(spectemp);
 
 mesh(spectrum);
 
-%imwrite(imadjust(spectrum,stretchlim(spectrum,[0,1])), "spectrum.png");
+%imwrite(imadjust(spectrum,stretchlim(spectrum,[0,1])), 'spectrum.png');
 
 
 

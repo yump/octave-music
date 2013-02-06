@@ -1,18 +1,18 @@
 function display (music)
 
-	printf("samples\n")
+	printf('samples\n')
 	music.samples
 
-	printf("arraypar\n")
+	printf('arraypar\n')
 	music.arraypar
 
-	printf("covar\n")
+	printf('covar\n')
 	music.covar
 
-	printf("noisedim\n")
+	printf('noisedim\n')
 	music.noisedim
 
-	printf("noisespace\n")
+	printf('noisespace\n')
 	music.noisespace
 
-endfunction
+end

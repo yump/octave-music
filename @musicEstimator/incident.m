@@ -9,4 +9,4 @@ function [result] = incident (music, azi, elev)
 	
 	result = pmu(music, propvec);
 
-endfunction
+end
