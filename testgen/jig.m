@@ -27,15 +27,17 @@ s2 = -[cos(azi).*cos(elev), sin(azi).*cos(elev), sin(elev)]';
 numsamples = 2
 sample1 = testgen(antennas, repmat(s1,[1,numsamples]), 0.00076154);
 sample2 = testgen(antennas, repmat(s2,[1,numsamples]), 0.00076154);
-sample = sample1;
+sample = sample1 + sample2;
 
 estimator = musicEstimator(antennas, sample);
 abs(pmu(estimator, s1))
 abs(pmu(estimator, [0 1 0]'))
 
 tic;
-spectrum =  abs(  pseudospec(estimator, pi/4, pi/4, 128, 128) );
+spectemp = pseudospec(estimator, pi/4, pi/4, 128, 128);
 toc;
+
+spectrum = abs(spectemp);
 
 mesh(spectrum);
 
