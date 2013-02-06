@@ -34,7 +34,7 @@ abs(pmu(estimator, s1))
 abs(pmu(estimator, [0 1 0]'))
 
 tic;
-spectemp = pseudospec(estimator, pi/4, pi/4, 128, 128);
+spectemp = pseudospec(estimator, pi/4, pi/4, 64, 64);
 toc;
 
 spectrum = abs(spectemp);
