@@ -20,16 +20,21 @@ antennas = antennas';
 
 
 s1 = [-1 0 0]';                        %straight on
-s2 = [-0.099015 -0.990148 -0.099015]'; %a little caddycorner from octant 1
+azi = pi/8*(rand-0.5);
+elev = pi/8*(rand-0.5);
+s2 = -[cos(azi).*cos(elev), sin(azi).*cos(elev), sin(elev)]';
 
-sample = testgen(antennas, s1, 0.0076154); % 5 degree std dev
+numsamples = 2
+sample1 = testgen(antennas, repmat(s1,[1,numsamples]), 0.00076154);
+sample2 = testgen(antennas, repmat(s2,[1,numsamples]), 0.00076154);
+sample = sample1;
 
 estimator = musicEstimator(antennas, sample);
 abs(pmu(estimator, s1))
 abs(pmu(estimator, [0 1 0]'))
 
 tic;
-spectrum =  abs(  pseudospec(estimator, pi/4, pi/4, 128, 128) );
+spectrum =  abs(  pseudospec(estimator, pi/4, pi/4, 64, 64) );
 toc;
 
 mesh(spectrum);

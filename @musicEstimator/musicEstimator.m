@@ -11,7 +11,11 @@ function [music] = musicEstimator(arraypar, samples)
 	assert( columns(arraypar) == rows(samples) );
 
 	% fancier covariance estimator goes here
-	music.covar = samples * samples' ./ columns(samples);
+	music.covar = zeros(rows(samples));
+	for ix = 1:columns(samples)
+		music.covar += samples(:,ix) * samples(:,ix)';
+	endfor
+	music.covar = music.covar / columns(samples);
 
 	% get ordered eigenvals/vecs
 	[vec, val] = eig(music.covar);
@@ -21,6 +25,7 @@ function [music] = musicEstimator(arraypar, samples)
 
 	% Try to guess the dimension of the noise space
 	music.noisedim = min( find( diff(mag_ordered) > 0.5 ) ); %emperical
+	music.noisedim = rows(samples) - 2;
 
 	% slice the noise space
 	music.noisespace = music.eigvec(:,1:music.noisedim);

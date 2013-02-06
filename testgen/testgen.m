@@ -14,8 +14,10 @@
 
 function [sample] = testgen ( elements, wavvec, variance)
 	sample = elements' * wavvec;
-	sample += sqrt(variance) * randn(size(sample));
 	sample = exp(i*sample);
+	rnoise = sqrt(variance) * randn(size(sample));
+	inoise = sqrt(variance) * randn(size(sample));
+	sample += rnoise + i*inoise;
 end
 
 		
