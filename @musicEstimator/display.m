@@ -15,4 +15,7 @@ function display (music)
 	printf("noisespace\n")
 	music.noisespace
 
+	printf("mag_ordered")
+	abs(music.eigval)
+
 endfunction
