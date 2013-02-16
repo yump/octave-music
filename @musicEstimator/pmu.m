@@ -3,13 +3,9 @@ function [result] = pmu(music, propvec)
 	% propvec is a matrix holding unit vectors from the 
 	% dirctions of interest.  (FROM the directions, remember.)
 
-	printf("in pmu\n");
 	insz = size(propvec);
 	noisetemp = music.noisespace * music.noisespace'; %subexp
 	arraypartemp = music.arraypar';
-
-	%printf("Size of propvec\n");
-	%insz
 
 	% single point case (propvec is 3x1)
 	if ( (length(insz) == 2) && all(insz == [3 1]) )
@@ -28,10 +24,10 @@ function [result] = pmu(music, propvec)
 		end
 
 	else
-		error("pmu: bad propvec size\n");
+		error('pmu: bad propvec size\n');
 	end
 
 	result = 1 ./ abs(result_inv);
 
 
-endfunction
+end

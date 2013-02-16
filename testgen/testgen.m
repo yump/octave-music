@@ -1,5 +1,3 @@
-#!/usr/bin/octave
-
 % testgen - generate one noisy sample of test data for DOA estimation
 
 % Usage:
@@ -21,6 +19,5 @@ function [sample] = testgen ( elements, wavvec, variance)
 		inoise = sqrt(variance) * randn(size(sample(:,sx)));
 		sample(:,sx) += rnoise + i*inoise;
 	end
-end
 
 		
