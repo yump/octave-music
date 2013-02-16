@@ -25,7 +25,7 @@ function [music] = musicEstimator(arraypar, samples)
 	music.eigvec = vec(:,ix);
 
 	% Try to guess the dimension of the noise space
-	[null, music.noisedim] = max(diff(log(mag_ordered)));
+	[~, music.noisedim] = max(diff(log(mag_ordered)));
 	%music.noisedim = rows(samples) - 2;
 	figure(1);
 	stem(log(mag_ordered));
