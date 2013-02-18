@@ -10,14 +10,12 @@
 
 % variance is the variance of the zero-mean gaussian noise added to the sample
 
-function [sample] = testgen ( elements, wavvec, variance)
+function [sample] = testgen ( elements, wavvec, snr)
 	sample = zeros([size(elements,2),size(wavvec,2)]);
 	for sx = 1:size(wavvec,2)
 		sample(:,sx) = elements' * wavvec(:,sx);
-		sample(:,sx) = exp(i*sample(:,sx));
-		rnoise = sqrt(variance) * randn(size(sample(:,sx)));
-		inoise = sqrt(variance) * randn(size(sample(:,sx)));
-		sample(:,sx) += rnoise + i*inoise;
+		sample(:,sx) = exp(i*(sample(:,sx) + 2*pi*rand));
+		sample(:,sx) = awgn(sample(:,sx),snr);
 	end
 
 		

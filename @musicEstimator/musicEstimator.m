@@ -26,12 +26,26 @@ function [music] = musicEstimator(arraypar, samples)
 
 	% Try to guess the dimension of the noise space
 	[~, music.noisedim] = max(diff(log(mag_ordered)));
-	%music.noisedim = rows(samples) - 2;
+	music.signals = size(samples,1) - music.noisedim;
+	%music.noisedim = rows(samples) - 1;
 	figure(1);
 	stem(log(mag_ordered));
 
 	% slice the noise space
 	music.noisespace = music.eigvec(:,1:music.noisedim);
+
+	% debug
+%	printf('\nSize of noise space\n');
+%	size(music.noisespace)
+%
+%	printf('\nrank of noise space\n');
+%	rank(music.noisespace)
+%
+%	printf('\nSize of covariance estiamte\n');
+%	size(music.covar)
+%
+%	printf('\nrank of covariance estiamte\n');
+%	rank(music.covar)
 
 	music = class(music, 'musicEstimator');
 
