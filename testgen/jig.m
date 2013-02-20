@@ -36,7 +36,7 @@ s5 = rot*s5;
 %cart2sph(s5')
 
 numsamples = 1;
-snr=60;
+snr=30;
 sample1 = testgen(antennas, repmat(s1,[1,numsamples]), snr);
 sample2 = testgen(antennas, repmat(s2,[1,numsamples]), snr);
 sample3 = testgen(antennas, repmat(s3,[1,numsamples]), snr);
@@ -53,8 +53,8 @@ estimator = musicEstimator(antennas, sample);
 %
 %spectrum = abs(spectemp);
 
-azi = linspace(-pi,pi,4);
-elv = linspace(-pi/2,pi/2,4);
+azi = linspace(-pi,pi,32);
+elv = linspace(-pi/2,pi/2,32);
 [aa,ee] = meshgrid(azi,elv);
 tic;
 spectrum = incident(estimator, aa, ee);
