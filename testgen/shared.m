@@ -26,7 +26,7 @@ sample2 = testgen(antennas, s2, numsamples, snr);
 sample3 = testgen(antennas, s3, numsamples, snr);
 sample4 = testgen(antennas, s4, numsamples, snr);
 sample5 = testgen(antennas, s5, numsamples, snr);
-sample = sample1 + sample5;
+sample = sample2;
 
 estimator = musicEstimator(antennas, sample);
 
