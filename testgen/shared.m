@@ -2,6 +2,11 @@
 
 load circtennas.dat
 antennas = antennas * 2; %radius 2
+front = antennas;
+back = antennas;
+front(1,:) = 1;
+back(1,:) = -1;
+antennas = [front antennas back];
 
 
 s1 = [-1 0 0]';                        %straight on
