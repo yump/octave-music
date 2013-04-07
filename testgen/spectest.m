@@ -1,5 +1,3 @@
-#!/usr/bin/octave 
-
 %   Copyright 2012,2013 Russell Haley
 %   (Please add yourself if you make changes)
 %
