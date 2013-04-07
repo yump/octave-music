@@ -32,8 +32,8 @@ antennas = [front antennas back];
 
 
 s1 = [-1 0 0]';                        %straight on
-s3 = -sph2cart([pi/4*(rand - 0.5), pi/4*(rand -0.5), 1])';
 s2 = -sph2cart([pi/4*(rand - 0.5), pi/4*(rand -0.5), 1])';
+s3 = -sph2cart([pi/4*(rand - 0.5), pi/4*(rand -0.5), 1])';
 s4 = -sph2cart([pi/4*(rand - 0.5), pi/4*(rand -0.5), 1])';
 
 %rotating signal
