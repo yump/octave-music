@@ -13,10 +13,12 @@
 function [samples] = testgen ( elements, wavvec, num_samples, snr)
 	samples = zeros([size(elements,2),size(wavvec,2)]);
 	phases = elements' * wavvec;
-	iq = exp(i*(phases + rand*2*pi));
-	samples = repmat(iq,1,num_samples);
+	phases = repmat(phases,1,num_samples);
 
-	for ex = 1:size(elements,2)
-		samples(ex,:) = awgn(samples(ex,:),snr);
-	end
+	%necessary so that signals are uncorrelated
+	modulation = rand(1,num_samples) - 0.5;
+	phases = bsxfun(@plus,phases,modulation);
+
+	samples = exp(i*(phases + rand*2*pi));
+	samples = awgn(samples,snr);
 end

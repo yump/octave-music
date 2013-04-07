@@ -19,14 +19,14 @@ end
 s5 = rot*s5;
 %cart2sph(s5')
 
-numsamples = 1024;
-snr=120;
+numsamples = 32;
+snr=20;
 sample1 = testgen(antennas, s1, numsamples, snr);
 sample2 = testgen(antennas, s2, numsamples, snr);
 sample3 = testgen(antennas, s3, numsamples, snr);
 sample4 = testgen(antennas, s4, numsamples, snr);
 sample5 = testgen(antennas, s5, numsamples, snr);
-sample = sample2;
+sample = sample2 + sample1;
 
-estimator = musicEstimator(antennas, sample);
+estimator = musicEstimator(antennas, sample, 2);
 
