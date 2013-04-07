@@ -34,7 +34,7 @@ s4 = -sph2cart([pi/4*(rand - 0.5), pi/4*(rand -0.5), 1])';
 %rotating signal
 th = pi/16;
 rot = [cos(th) -sin(th) 0; sin(th) cos(th) 0; 0 0 1];
-if ( ! exist('s5') )
+if ( ~ exist('s5') )
 	s5 = s1;
 	disp('Created s5');
 end
