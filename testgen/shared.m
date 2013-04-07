@@ -17,7 +17,12 @@
 %   along with doa-backend.  If not, see <http://www.gnu.org/licenses/>.
 
 
-load circtennas.dat
+% 16 element circular array in the y-z plane
+antennas = zeros(3,16);
+th = linspace(0,2*pi,16);
+antennas(2,:) = cos(th);
+antennas(3,:) = sin(th);
+
 antennas = antennas * 2; %radius 2
 front = antennas;
 back = antennas;
